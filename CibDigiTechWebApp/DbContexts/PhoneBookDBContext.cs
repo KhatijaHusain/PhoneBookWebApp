@@ -10,8 +10,6 @@ namespace CibDigiTechWebApp.DbContexts
 {
     public class PhoneBookDBContext : DbContext
     {
-
-       // public DbSet<PhoneBook> PhoneBook { get; set; }
         public DbSet<PhoneBookDto> PhoneBookDto { get; set; }
         public DbSet<EntryBookDto> EntryBook { get; set; }
 

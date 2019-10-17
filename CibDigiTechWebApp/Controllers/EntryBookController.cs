@@ -56,9 +56,10 @@ namespace CibDigiTechWebApp.Controllers
         [ProducesResponseType(400)]
         public async Task<ActionResult<EntryBookDto>> Post([FromBody] EntryBookDto value)
         {
-            if(await _entryBookService.CreateEntry(value))
+            var created = await _entryBookService.CreateEntry(value);
+            if (created)
                 return Ok(value);
-            return BadRequest("Duplicate primary key can not be added."); ;
+            return BadRequest("Either Duplicate primary key or no person name"); ;
         }
     }
 }

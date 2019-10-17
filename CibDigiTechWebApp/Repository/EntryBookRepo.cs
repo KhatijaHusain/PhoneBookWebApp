@@ -39,13 +39,16 @@ namespace CibDigiTechWebApp.Repository
 
         public async Task<bool> CreateEntry(EntryBookDto entryBookDto)
         {
-            await _dbContext.EntryBook.AddAsync(entryBookDto);
-            int entryBook = await _dbContext.SaveChangesAsync();
-            if (entryBook != 0)
-                return true;
+           var obj = _dbContext.EntryBook.Where(x => x.PersonId == entryBookDto.PersonId).FirstOrDefault();
+            if (obj == null && !(String.IsNullOrEmpty(entryBookDto.PersonName)))
+            {
+                await _dbContext.EntryBook.AddAsync(entryBookDto);
+                int entryBook = await _dbContext.SaveChangesAsync();
+                if (entryBook != 0)
+                    return true;
+                return false;
+            }
             return false;
-
-
         }
 
     }

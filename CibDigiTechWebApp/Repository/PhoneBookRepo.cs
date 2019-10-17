@@ -31,11 +31,16 @@ namespace CibDigiTechWebApp.Repository
 
         public async Task<bool> CreatePhoneBook(PhoneBookDto phoneBookDto)
         {
-            await _dbContext.PhoneBookDto.AddAsync(phoneBookDto);
-            int phoneEntry = await _dbContext.SaveChangesAsync();
+            var obj = _dbContext.PhoneBookDto.Where(x => x.PhoneBookId == phoneBookDto.PhoneBookId).FirstOrDefault();
+            if (obj == null && !(String.IsNullOrEmpty(phoneBookDto.PhoneBookName)))
+            {
+                await _dbContext.PhoneBookDto.AddAsync(phoneBookDto);
+                int phoneEntry = await _dbContext.SaveChangesAsync();
 
-            if (phoneEntry != 0)
-                return true;
+                if (phoneEntry != 0)
+                    return true;
+                return false;
+            }
             return false;
         }
     }

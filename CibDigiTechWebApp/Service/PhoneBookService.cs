@@ -29,7 +29,8 @@ namespace CibDigiTechWebApp.Service
 
         public async Task<bool> CreatePhoneBook(PhoneBookDto phoneBookDto)
         {
-            return await _phoneBookRepo.CreatePhoneBook(phoneBookDto);
+            var created = await _phoneBookRepo.CreatePhoneBook(phoneBookDto);
+            return created;
         }
     }
 }

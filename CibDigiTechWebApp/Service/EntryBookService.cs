@@ -33,7 +33,9 @@ namespace CibDigiTechWebApp.Service
 
         public async Task<bool> CreateEntry(EntryBookDto entryBook)
         {
-            return await _entryBookRepo.CreateEntry(entryBook);
+            var created = await _entryBookRepo.CreateEntry(entryBook);
+
+            return created;
         }
     }
 }

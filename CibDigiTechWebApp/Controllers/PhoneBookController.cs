@@ -36,9 +36,10 @@ namespace CibDigiTechWebApp.Controllers
         [ProducesResponseType(400)]
         public async Task<ActionResult<PhoneBookDto>> Post([FromBody] PhoneBookDto value)
         {
-           if(await _phoneBookService.CreatePhoneBook(value))
+            var created = await _phoneBookService.CreatePhoneBook(value);
+           if (created)
                 return Ok(value);
-            return BadRequest("Duplicate primary key added");
+            return BadRequest("Either Duplicate primary key added or no phone book name");
         }
     }
 }
