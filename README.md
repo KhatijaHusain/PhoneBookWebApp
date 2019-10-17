@@ -1,4 +1,4 @@
-# CibDigiTechWebApp
+#PhoneBookWebApp
 Dotnet core web api 2.1 Application using Entity Framework, Repository Pattern, Dependency Injection and Postgres Database
 
 
