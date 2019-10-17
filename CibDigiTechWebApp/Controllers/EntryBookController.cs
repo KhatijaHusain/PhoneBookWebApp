@@ -29,21 +29,36 @@ namespace CibDigiTechWebApp.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<List<EntryBookDto>>> GetById(int id)
         {
-            return await _entryBookService.GetDataById(id);
+            List<EntryBookDto> entries = await _entryBookService.GetDataById(id);
+
+            if(entries != null || entries.Count != 0)
+            {
+                return entries;
+            }
+
+            return NoContent();
         }
 
         [HttpGet("{id}/{searchText}")]
         public async Task<ActionResult<List<EntryBookDto>>> GetById(int id, string searchText)
         {
-            return await _entryBookService.GetDataBySearchText(id, searchText);
+            List<EntryBookDto> entries = await _entryBookService.GetDataBySearchText(id, searchText);
+
+            if (entries != null || entries.Count != 0)
+            {
+                return entries;
+            }
+            return NoContent();
         }
 
         [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
         public async Task<ActionResult<EntryBookDto>> Post([FromBody] EntryBookDto value)
         {
-            await _entryBookService.CreateEntry(value);
-
-            return Ok(value);
+            if(await _entryBookService.CreateEntry(value))
+                return Ok(value);
+            return BadRequest("Duplicate primary key can not be added."); ;
         }
     }
 }

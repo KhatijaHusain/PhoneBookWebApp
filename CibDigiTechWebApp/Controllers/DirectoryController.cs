@@ -38,21 +38,9 @@ namespace CibDigiTechWebApp.Controllers
         [HttpPost]
         public async Task<ActionResult<PhoneBookDto>> Post([FromBody] PhoneBookDto value)
         {
-            _phoneBookService.CreatePhoneBook(value);
+            await _phoneBookService.CreatePhoneBook(value);
 
             return Ok(value);
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        }        
     }
 }

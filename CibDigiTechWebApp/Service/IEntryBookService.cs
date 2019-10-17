@@ -14,6 +14,6 @@ namespace CibDigiTechWebApp.Service
 
         Task<List<EntryBookDto>> GetDataBySearchText(int id, string searchText);
 
-        Task CreateEntry(EntryBookDto entryBook);
+        Task<bool> CreateEntry(EntryBookDto entryBook);
     }
 }

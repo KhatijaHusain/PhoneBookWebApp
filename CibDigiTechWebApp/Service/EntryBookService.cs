@@ -31,9 +31,9 @@ namespace CibDigiTechWebApp.Service
             return _entryBookRepo.GetDataBySearchText(id, searchText);
         }
 
-        public Task CreateEntry(EntryBookDto entryBook)
+        public async Task<bool> CreateEntry(EntryBookDto entryBook)
         {
-            return _entryBookRepo.CreateEntry(entryBook);
+            return await _entryBookRepo.CreateEntry(entryBook);
         }
     }
 }

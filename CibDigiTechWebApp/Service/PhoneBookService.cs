@@ -27,9 +27,9 @@ namespace CibDigiTechWebApp.Service
             return _phoneBookRepo.GetDataById(phoneBookId);
         }
 
-        public Task CreatePhoneBook(PhoneBookDto phoneBookDto)
+        public async Task<bool> CreatePhoneBook(PhoneBookDto phoneBookDto)
         {
-            return _phoneBookRepo.CreatePhoneBook(phoneBookDto);
+            return await _phoneBookRepo.CreatePhoneBook(phoneBookDto);
         }
     }
 }

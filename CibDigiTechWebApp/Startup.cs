@@ -17,13 +17,20 @@ namespace CibDigiTechWebApp
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly ILoggerFactory _loggerFactory;
+        public static IConfiguration Configuration { get; private set; }
+
+        public Startup(IHostingEnvironment environment, ILoggerFactory loggerFactory)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(environment.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{environment.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables();
+            Configuration = builder.Build();
+            _loggerFactory = loggerFactory;
         }
-
-        public IConfiguration Configuration { get; }
-
+        
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -31,6 +38,7 @@ namespace CibDigiTechWebApp
             //services.AddHttpContextAccessor();
             services.AddTransient<IPhoneBookService, PhoneBookService>();
             services.RegisterDependencies(Configuration);
+            services.AddOptions();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

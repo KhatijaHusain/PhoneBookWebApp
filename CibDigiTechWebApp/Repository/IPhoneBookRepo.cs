@@ -13,6 +13,6 @@ namespace CibDigiTechWebApp.Repository
 
         Task<PhoneBookDto> GetDataById(int phoneBookId);
 
-        Task CreatePhoneBook(PhoneBookDto phoneBookDto);
+        Task<bool> CreatePhoneBook(PhoneBookDto phoneBookDto);
     }
 }

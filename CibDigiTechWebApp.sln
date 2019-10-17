@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CibDigiTechWebApp", "CibDigiTechWebApp\CibDigiTechWebApp.csproj", "{FF6D5E27-2C40-4B1B-8DE7-85A6BB52869E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CibDigiTechWebApp", "CibDigiTechWebApp\CibDigiTechWebApp.csproj", "{FF6D5E27-2C40-4B1B-8DE7-85A6BB52869E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{C298EC8E-A9A0-4290-80AD-3EFF3CA8600D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{FF6D5E27-2C40-4B1B-8DE7-85A6BB52869E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF6D5E27-2C40-4B1B-8DE7-85A6BB52869E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF6D5E27-2C40-4B1B-8DE7-85A6BB52869E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C298EC8E-A9A0-4290-80AD-3EFF3CA8600D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C298EC8E-A9A0-4290-80AD-3EFF3CA8600D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C298EC8E-A9A0-4290-80AD-3EFF3CA8600D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C298EC8E-A9A0-4290-80AD-3EFF3CA8600D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
