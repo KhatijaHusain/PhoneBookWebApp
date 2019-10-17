@@ -42,3 +42,16 @@ INSERT INTO PhoneBook(
 	(4, 'School'),
 	(5, 'Work')
 	
+	
+API Endpoints
+
+	PhoneBook
+	https://localhost:44341/api/phonebook   					- GET (Gets the List of Phonebook Names)
+	https://localhost:44341/api/phonebook/{id} 					- GET (Gets the Phonebook Name for that id)
+	https://localhost:44341/api/phonebook   					- POST (Create a new object with phone book name)
+	
+	EntryBook
+	https://localhost:44341/api/entrybook   					- GET (Gets the List of Entries with phone number)
+	https://localhost:44341/api/entrybook/{id}   				- GET (Gets the List of Entries with phone number for that Phonebook id)
+	https://localhost:44341/api/entrybook/{id}/{searchstring}   - GET (Gets the List of Entries with phone number for that Phonebook id and search string)
+	https://localhost:44341/api/entrybook 						- POST (Create a new entry in entrybook table with all details)
